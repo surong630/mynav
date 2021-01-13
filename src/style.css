@@ -29,9 +29,21 @@ body {
 .globalHeader {
   margin: 20px 20px;
 }
+@media (min-width: 500px) {
+  .globalHeader {
+    margin: 100px 0px;
+  }
+}
 .searchForm {
   display: flex;
   justify-content: space-between;
+}
+@media (min-width: 500px) {
+  .searchForm {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .searchForm > input {
   width: 100%;
@@ -60,7 +72,9 @@ body {
   outline: #012b3d;
 }
 .globalMain {
-
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .siteList {
   display: flex;
@@ -68,8 +82,20 @@ body {
   margin: 20px;
   justify-content: space-between;
 }
+@media screen and  (min-width: 500px) {
+  .siteList {
+    margin-left: 10px;
+    margin-right: -25px;
+    justify-content: flex-start;
+  }
+}
 .siteList > li {
   margin-bottom: 10px;
+}
+@media screen and  (min-width: 500px) {
+  .siteList > li {
+    margin-right: 10px;
+  }
 }
 .siteList .site {
   width: 160px;
@@ -81,6 +107,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px 0;
+  position: relative;
 }
 .siteList .site > .logo {
   width: 64px;
@@ -93,6 +120,20 @@ body {
 .siteList .site > .link {
   font-size: 14px;  
   margin-top: 4px;
+}
+.siteList .site > .close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: none;
+}
+.siteList .site:hover > .close {
+  display: block;
+  cursor: default;
 }
 .siteList .addButton {
   width: 160px;
