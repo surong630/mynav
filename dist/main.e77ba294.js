@@ -169,12 +169,12 @@ $('.addButton').on('click', function () {
   var url = prompt('请问你要添加的网址');
 
   if (!url) {
-    url = prompt('请输入网址');
+    url = prompt('请重新输入网址');
   }
 
   var name = prompt('请添加网站的名称');
 
-  while (name.length > 4) {
+  if (name.length > 4) {
     alert('请输入小于4的字符');
     name = prompt('请添加网站的名称');
   } // 判断http是不是开头 若不是则自动添加
@@ -212,4 +212,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["d6sW"], null)
-//# sourceMappingURL=main.94c5a43d.js.map
+//# sourceMappingURL=main.e77ba294.js.map
