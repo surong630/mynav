@@ -130,6 +130,15 @@ var hashMap = xObject || [{
 }, {
   logo: 'B',
   url: 'https://www.bilibibli.com'
+}, {
+  logo: 'J',
+  url: 'juejin.cn'
+}, {
+  logo: 'C',
+  url: 'https://www.csdn.net'
+}, {
+  logo: 'T',
+  url: 'taobao.com'
 }];
 
 var simplifyUrl = function simplifyUrl(url) {
@@ -158,6 +167,11 @@ render(); // 添加点击事件
 
 $('.addButton').on('click', function () {
   var url = prompt('请问你要添加的网址');
+
+  if (!url) {
+    url = prompt('请输入网址');
+  }
+
   var name = prompt('请添加网站的名称');
 
   while (name.length > 4) {
@@ -198,4 +212,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["d6sW"], null)
-//# sourceMappingURL=main.e0a7f0c7.js.map
+//# sourceMappingURL=main.94c5a43d.js.map

@@ -6,7 +6,10 @@ let xObject = JSON.parse(x);
 // 动态创建数组，然后通过动态添加和删除。 判断localStorage有没有存在数据,有的话则用,没有就用默认的
 const hashMap = xObject ||  [
   {logo: 'A', url: 'https://www.acfun.cn'},
-  {logo: 'B', url: 'https://www.bilibibli.com'}
+  {logo: 'B', url: 'https://www.bilibibli.com'},
+  {logo: 'J', url: 'juejin.cn'},
+  {logo: 'C', url: 'https://www.csdn.net'},
+  {logo: 'T', url: 'taobao.com'}
 ]
 const simplifyUrl = (url) => {
   let newUrl = url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, '')
@@ -46,6 +49,9 @@ render()
 // 添加点击事件
 $('.addButton').on('click', () => {
   let url = prompt('请问你要添加的网址');
+  if(!url) {
+    url = prompt('请输入网址')
+  }
   let name = prompt('请添加网站的名称')
   while(name.length > 4) {
     alert('请输入小于4的字符')
