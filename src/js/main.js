@@ -50,10 +50,10 @@ render()
 $('.addButton').on('click', () => {
   let url = prompt('请问你要添加的网址');
   if(!url) {
-    url = prompt('请输入网址')
+    url = prompt('请重新输入网址')
   }
   let name = prompt('请添加网站的名称')
-  while(name.length > 4) {
+  if(name.length > 4) {
     alert('请输入小于4的字符')
     name = prompt('请添加网站的名称')
   }
