@@ -21,7 +21,7 @@ const render = () => {
     <a href="${node.url}" target="_blank">
       <div class="site">
         <div class="logo">
-          ${simplifyUrl(node.url)[0].toUpperCase()}
+          ${node.logo}
         </div>
         <div class="link">${simplifyUrl(node.url)}</div>
           <div class="close">
@@ -35,8 +35,10 @@ const render = () => {
     `).insertBefore($last)
     $li.on('click', '.close', e => {
       e.preventDefault();
-      hashMap.splice(index, 1)
-      render()
+      if(confirm('确认删除?')) {
+        hashMap.splice(index, 1)
+        render()
+      }
     })
   })
 }
@@ -44,13 +46,20 @@ render()
 // 添加点击事件
 $('.addButton').on('click', () => {
   let url = prompt('请问你要添加的网址');
+  let name = prompt('请添加网站的名称')
+  while(name.length > 4) {
+    alert('请输入小于4的字符')
+    name = prompt('请添加网站的名称')
+  }
   // 判断http是不是开头 若不是则自动添加
   if(url.indexOf('http') !== 0) {
     url = 'https://' + url
   }
+  if(!name) {
+    name = url[8].toUpperCase()
+  }
   // 将新添加的url加入到hashMap数组中
-  hashMap.push({logo: url[8], url: url});
-
+  hashMap.push({logo: name, url: url});
   // 再生成新的样式
   render()
 })
@@ -62,7 +71,7 @@ window.onbeforeunload = () => {
 $(document).on('keypress', e => {
   const { key } = e;
   for(let i=0;i< hashMap.length;i++) {
-    if(hashMap[i].logo.toLowerCase() === key) {
+    if(hashMap[i].url[8].toLowerCase() === key) {
       window.open(hashMap[i].url)
     }
   }

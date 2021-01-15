@@ -10,6 +10,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 ul, ol {
   list-style: none;
@@ -24,14 +25,15 @@ img {
 }
 /* style */
 body {
-  background: #eee;
+  background: url("./img/5b31f36e4a653.jpg");
 } 
 .globalHeader {
   margin: 20px 20px;
 }
 @media (min-width: 500px) {
   .globalHeader {
-    margin: 100px 0px;
+    margin-top: 200px;
+    margin-bottom: 150px;
   }
 }
 .searchForm {
@@ -50,18 +52,18 @@ body {
   margin-right: 10px;
   height: 40px;
   padding: 0 10px;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(32,69,121);
   border-radius: 4px;
   outline: none;
 }
 .searchForm > input:focus {
-  outline: 1px solid rgb(155, 155, 155);
+  outline: 1px solid rgba(32,69,121,.6);
   border-radius: 0px;
 }
 .searchForm > button {
   white-space: nowrap;
   padding: 0 28px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(32,69,121,.6);
   border-radius: 4px;
   background: #0282b9;
   color: white;
@@ -76,6 +78,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
 .siteList {
   display: flex;
   flex-wrap: wrap;
@@ -98,6 +101,7 @@ body {
   }
 }
 .siteList .site {
+  position: relative;
   width: 160px;
   display: flex;
   justify-content: center;
@@ -107,15 +111,19 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px 0;
-  position: relative;
+}
+.siteList > li:hover .site{
+  background: rgba(255,255,255,.2);
 }
 .siteList .site > .logo {
-  width: 64px;
+  width: 100%;
   height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 64px;
+  font-size: 39px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .siteList .site > .link {
   font-size: 14px;  
@@ -132,6 +140,20 @@ body {
   display: none;
 }
 .siteList .site:hover > .close {
+  display: block;
+  cursor: default;
+}
+.siteList .site > .change {
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+  height: 40px;
+  width: 5px;
+  line-height: 20px;
+  text-align: center;
+  overflow: wrap;
+}
+.siteList .site:hover > .change {
   display: block;
   cursor: default;
 }

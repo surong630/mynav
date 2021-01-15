@@ -142,11 +142,14 @@ var render = function render() {
   $siteList.find('li:not(.last)').remove(); // 遍历数组，将每一项插入到新增网站之前
 
   hashMap.forEach(function (node, index) {
-    var $li = $("<li>\n    <a href=\"".concat(node.url, "\" target=\"_blank\">\n      <div class=\"site\">\n        <div class=\"logo\">\n          ").concat(simplifyUrl(node.url)[0].toUpperCase(), "\n        </div>\n        <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n          <div class=\"close\">\n            <svg class=\"icon\">\n              <use xlink:href=\"#icon-close\"></use>\n            </svg>\n          </div>\n      </div>\n    </a>\n  </li>\n    ")).insertBefore($last);
+    var $li = $("<li>\n    <a href=\"".concat(node.url, "\" target=\"_blank\">\n      <div class=\"site\">\n        <div class=\"logo\">\n          ").concat(node.logo, "\n        </div>\n        <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n          <div class=\"close\">\n            <svg class=\"icon\">\n              <use xlink:href=\"#icon-close\"></use>\n            </svg>\n          </div>\n      </div>\n    </a>\n  </li>\n    ")).insertBefore($last);
     $li.on('click', '.close', function (e) {
       e.preventDefault();
-      hashMap.splice(index, 1);
-      render();
+
+      if (confirm('确认删除?')) {
+        hashMap.splice(index, 1);
+        render();
+      }
     });
   });
 };
@@ -154,15 +157,26 @@ var render = function render() {
 render(); // 添加点击事件
 
 $('.addButton').on('click', function () {
-  var url = prompt('请问你要添加的网址'); // 判断http是不是开头 若不是则自动添加
+  var url = prompt('请问你要添加的网址');
+  var name = prompt('请添加网站的名称');
+
+  while (name.length > 4) {
+    alert('请输入小于4的字符');
+    name = prompt('请添加网站的名称');
+  } // 判断http是不是开头 若不是则自动添加
+
 
   if (url.indexOf('http') !== 0) {
     url = 'https://' + url;
+  }
+
+  if (!name) {
+    name = url[8].toUpperCase();
   } // 将新添加的url加入到hashMap数组中
 
 
   hashMap.push({
-    logo: url[8],
+    logo: name,
     url: url
   }); // 再生成新的样式
 
@@ -178,10 +192,10 @@ $(document).on('keypress', function (e) {
   var key = e.key;
 
   for (var i = 0; i < hashMap.length; i++) {
-    if (hashMap[i].logo.toLowerCase() === key) {
+    if (hashMap[i].url[8].toLowerCase() === key) {
       window.open(hashMap[i].url);
     }
   }
 });
 },{}]},{},["d6sW"], null)
-//# sourceMappingURL=main.83942587.js.map
+//# sourceMappingURL=main.e0a7f0c7.js.map
