@@ -39,6 +39,7 @@ body {
 .searchForm {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 @media (min-width: 500px) {
   .searchForm {
@@ -75,10 +76,10 @@ body {
 }
 .globalMain {
   max-width: 900px;
+  margin-top: 240px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .siteList {
   display: flex;
   flex-wrap: wrap;
@@ -182,4 +183,19 @@ body {
 .siteList .addButton .text {
   font-size: 14px;
   margin-top: 4px;
+}
+/* 跨域请求百度搜索 */
+.search-wrap {
+  text-align: center;
+}
+.list-wrap {
+  background: white;
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.wd-list li {
+  text-align: left;
+  padding: 0 10px;
 }
