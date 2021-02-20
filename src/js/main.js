@@ -17,7 +17,7 @@ const simplifyUrl = (url) => {
 }
 const render = () => {
   // 找到除了最后一个的li然后每个都移除掉
-    $siteList.find('li:not(.last)').remove()
+  $siteList.find('li:not(.last)').remove()
   // 遍历数组，将每一项插入到新增网站之前
   hashMap.forEach((node, index) => {
     const $li = $(`<li>

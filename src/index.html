@@ -19,6 +19,7 @@
       <input autocomplete="off" class="J_searchInput" name="wd" type="text">
       <button type="submit">搜索</button>
     </form>
+    <!-- jsonp跨域请求 -->
     <div class="list-wrap">
       <ul class="wd-list J_wdList">
       </ul>
@@ -41,14 +42,14 @@
     </ul>
   </main>
   <script src="//at.alicdn.com/t/font_2323312_mxes722you.js"></script>
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script type="text/html" id="J_listTpl">
     <li class="wd-item">
       <a class="wd-lk"
-        href="https://www.baidu.com/s?wd={{wdLink}}"
-        target="_blank">{{wd}}</a>
+      href="https://www.baidu.com/s?wd={{wdLink}}"
+      target="_blank">{{wd}}</a>
     </li>
   </script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/utils.js"></script>
   <script src="./js/index.js"></script>

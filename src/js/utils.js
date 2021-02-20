@@ -1,4 +1,4 @@
-var $ = (function () {
+var jsonp = (function () {
 
   function _doAjax(opt) {
     var o = window.XMLHttpRequest ?

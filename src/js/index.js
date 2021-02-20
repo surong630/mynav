@@ -3,6 +3,7 @@
   var searchInput = document.getElementsByClassName('J_searchInput')[0],
     wdList = document.getElementsByClassName('J_wdList')[0],
     listTpl = document.getElementById('J_listTpl').innerHTML;
+    // 这里通过触发和失去焦点 控制css,再通过css控制如果鼠标在ul中,则还将style设置为block
     searchInput.addEventListener('blur', () => {
       wdList.style.display = 'none'
     })
@@ -30,7 +31,7 @@
     // document.body.appendChild(oScript);
     // document.body.removeChild(oScript);
     console.log(cb);
-    $.ajax({
+    jsonp.ajax({
       url: "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1422,33222,31253,32974,33284,32938,32846,26350,33199,33239,33266&wd=" + val + "&req=2&csor=4&pwd=123&cb=" + cb,
       type: 'GET',
       dataType: 'JSONP',

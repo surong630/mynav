@@ -144,6 +144,7 @@ body {
   display: block;
   cursor: default;
 }
+
 .siteList .site > .change {
   position: absolute;
   right: 20px;
@@ -185,6 +186,7 @@ body {
   margin-top: 4px;
 }
 /* 跨域请求百度搜索 */
+
 .search-wrap {
   text-align: center;
 }
@@ -195,7 +197,18 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
+@media screen and (max-width: 500px) {
+  .list-wrap{
+    width: 375px;
+  }
+  .siteList .site > .close {
+    display: block;
+  }
+}
 .wd-list li {
   text-align: left;
   padding: 0 10px;
+}
+.wd-list:hover{
+  display: block!important;
 }
