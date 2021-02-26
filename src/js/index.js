@@ -18,6 +18,7 @@
     searchInput.addEventListener('input', typeInput, false);
   }
 
+
   function typeInput() {
     var val = _trimSpace(this.value);
     if (val.length > 0) {
@@ -26,20 +27,10 @@
   }
 
   function getDates(val, cb) {
-    // var oScript = document.createElement('script');
-    // oScript.src = "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1422,33222,31253,32974,33284,32938,32846,26350,33199,33239,33266&wd=" + val + "&req=2&csor=4&pwd=123&cb=" + cb;
-    // document.body.appendChild(oScript);
-    // document.body.removeChild(oScript);
-    console.log(cb);
-    jsonp.ajax({
-      url: "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1422,33222,31253,32974,33284,32938,32846,26350,33199,33239,33266&wd=" + val + "&req=2&csor=4&pwd=123&cb=" + cb,
-      type: 'GET',
-      dataType: 'JSONP',
-      jsonpCallback: 'setDatas',
-      success: function (data) {
-        renderList(data);
-      }
-    })
+    var oScript = document.createElement('script');
+    oScript.src = "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=1422,33222,31253,32974,33284,32938,32846,26350,33199,33239,33266&wd=" + val + "&req=2&csor=4&pwd=123&cb=" + cb;
+    document.body.appendChild(oScript);
+    document.body.removeChild(oScript);
   }
 
   function renderList(data) {

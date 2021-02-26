@@ -72,7 +72,8 @@ var jsonp = (function () {
 
     o.open(type, url, async);
     type === 'POST' && o.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    o.send(type === 'GET' ? null : formatDatas(data));
+    // o.send(type === 'GET' ? null : formatDatas(data));
+    o.send();
 
     t = setTimeout(function () {
       o.abort();
@@ -83,21 +84,21 @@ var jsonp = (function () {
     }, timeout);
   }
 
-  function formatDatas(obj) {
-    var str = '';
-    for (var key in obj) {
-      str += key + '=' + obj[key] + '&';
-    }
-    return str.replace(/&$/, '');
-  }
+  // function formatDatas(obj) {
+  //   var str = '';
+  //   for (var key in obj) {
+  //     str += key + '=' + obj[key] + '&';
+  //   }
+  //   return str.replace(/&$/, '');
+  // }
 
-  function randomNum() {
-    var num = '';
-    for (var i = 0; i < 20; i++) {
-      num += Math.floor(Math.random() * 10);
-    }
-    return num;
-  }
+  // function randomNum() {
+  //   var num = '';
+  //   for (var i = 0; i < 20; i++) {
+  //     num += Math.floor(Math.random() * 10);
+  //   }
+  //   return num;
+  // }
 
   return {
     ajax: function (opt) {

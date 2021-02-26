@@ -35,7 +35,7 @@ const render = () => {
       </div>
     </a>
   </li>
-    `).insertBefore($last)
+    `).insertBefore($last);
     $li.on('click', '.close', e => {
       e.preventDefault();
       if(confirm('确认删除?')) {
@@ -75,6 +75,7 @@ window.onbeforeunload = () => {
   localStorage.setItem('x', string)
 }
 $(document).on('keypress', e => {
+  console.log(e.key);
   const { key } = e;
   for(let i=0;i< hashMap.length;i++) {
     if(hashMap[i].url[8].toLowerCase() === key) {

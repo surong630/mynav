@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header class="globalHeader">
+    <!-- 搜索 -->
+  <div class="search-wrap">
+    <form class="searchForm" method="get" action="https://www.baidu.com/s">
+      <input autocomplete="off" class="J_searchInput" name="wd" type="text">
+      <button type="submit">搜索</button>
+    </form>
+    <!-- jsonp跨域请求 -->
+    <div class="list-wrap">
+      <ul class="wd-list J_wdList">
+      </ul>
+    </div>
+    </div>
+  </header>
+  <script type="text/html" id="J_listTpl">
+    <li class="wd-item">
+      <a class="wd-lk"
+      href="https://www.baidu.com/s?wd={{wdLink}}"
+      target="_blank">{{wd}}</a>
+    </li>
+  </script>
+  <script src="./test.js"></script>
+  <script>
+    const data = {
+      name: '李磊',
+      age: 38
+    }
+    observe(data)
+    function observe(target) {
+      if(typeof target !== 'object' || target === null) {
+        return 
+      }
+      for(let key in target) {
+        defineReactive(target,key,target[key])
+      }
+    }
+    function defineReactive(target,key, value) {
+      Object.defineProperty(target, key, {
+        get() {
+          return value
+        },
+        set(newValue) {
+          if(newValue !== value) {
+            console.log('被改变了');
+            return newValue
+          }
+        }
+      })
+    }
+    data.name="cc"
+  </script>
+</body>
+</html>
